@@ -1,4 +1,4 @@
-add_library(pr-base64 STATIC
+add_library(pr-base64 
     base64.cpp
 )
 
