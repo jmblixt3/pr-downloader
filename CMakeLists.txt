@@ -31,14 +31,8 @@ set(PRD_BINDIR "." CACHE PATH "Where to install pr-downloader binary.")
 find_package(Threads REQUIRED)
 
 # CURL
-if(UNIX AND NOT PR_DOWNLOADER_FIND_CURL_NO_PKGCONFIG )
-    find_package(PkgConfig REQUIRED)
-    pkg_check_modules(libcurl REQUIRED IMPORTED_TARGET libcurl>=7.84)
-    add_library(prd::libcurl ALIAS PkgConfig::libcurl)
-else()
-    find_package(CURL 7.85 REQUIRED)
-    add_library(prd::libcurl ALIAS CURL::libcurl)
-endif()
+find_package(CURL 7.85 REQUIRED)
+add_library(prd::libcurl ALIAS CURL::libcurl)
 
 # ZLIB
 find_package(ZLIB REQUIRED)
